@@ -20,8 +20,7 @@ public class BookApplication {
 
     private String dt_req_purchase;
 
-    @Embedded
-    private MemberId member_id;
+    private Long member_id;
 
     private String isbn13;
 
@@ -31,8 +30,8 @@ public class BookApplication {
 
 
     @Builder
-    public BookApplication(String member_id, String isbn13){
-        this.member_id=new MemberId(member_id);
+    public BookApplication(Long member_id, String isbn13){
+        this.member_id=member_id;
         this.isbn13= isbn13;
         this.dt_req_purchase = DateUtils.getNowDate();
         this.del_status = "N";

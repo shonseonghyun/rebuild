@@ -1,15 +1,13 @@
 package com.rebuild.book.application;
 
 
+import com.rebuild.book.application.dto.FindBookDetailReqServiceDto;
 import com.rebuild.book.domain.Book;
 import com.rebuild.book.domain.BookRepository;
 import com.rebuild.book.application.dto.FindBookReqServiceDto;
-import com.rebuild.purchase.SearchQuery;
+import com.rebuild.book.domain.dto.PaginationRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Service
@@ -25,20 +23,14 @@ public class SearchBookService {
         return book;
     }
 
+    
 
-    /* isbn,제목으로 도서 검색 */
-//    public List<SearchBookResponse> findBookByTitle(SearchQuery searchQuery) {
-//        String query = "%"+searchQuery.getQuery()+"%";
-//
-//        List<Book> entityList = bookRepository.findByTitle(query);
-//
-//        List<SearchBookResponse> list = new ArrayList<>();
-//        for(Book book : entityList){
-//            list.add(new SearchBookResponse(book));
-//        }
-//
-//        return list;
-//    }
+    /* 특정 조건으로 검색 */
+    public PaginationRes findBooksByDetailConditions(FindBookDetailReqServiceDto findBookDetailReqServiceDto){
+        return bookRepository.findBooksByDetailConditions(findBookDetailReqServiceDto);
+    }
+
+
 
 
 

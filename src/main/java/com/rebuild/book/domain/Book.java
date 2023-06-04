@@ -51,7 +51,7 @@ public class Book {
 //    }
     /*2번 방식*/
 
-    public void loan(){
+    public void loanBook(){
         checkLoanBookPossible();
         changeBookState(BookState.LOANING_NOT_AVAILABLE);
     }
@@ -64,5 +64,9 @@ public class Book {
         this.bookState=bookState;
     }
 
+
+    public void returnBook(){
+        changeBookState(BookState.LOANING_AVAILABLE);
+    }
 
 }
